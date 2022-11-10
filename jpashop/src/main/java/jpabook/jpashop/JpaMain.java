@@ -1,5 +1,6 @@
 package jpabook.jpashop;
 
+import jpabook.jpashop.domain.Book;
 import jpabook.jpashop.domain.Member;
 
 import javax.persistence.EntityManager;
@@ -17,9 +18,11 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Member member = new Member();
 
-            em.persist(member);
+            Book book = new Book();
+            book.setName("JPA");
+            book.setAuthor("이태민");
+            em.persist(book);
             //영속
             tx.commit(); // 이때 DB에 쿼리문이 날라가는 것!
         } catch (Exception e){
